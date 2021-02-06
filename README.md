@@ -1,2 +1,2 @@
-# go-mbv-go
- Golang service starter
+# go-mbv-go 
+ Golang services starter template

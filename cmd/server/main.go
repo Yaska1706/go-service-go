@@ -29,10 +29,11 @@ func run() error {
 		return err
 	}
 
-	err = db.RunMigrations("postgres://mbv:mbv@localhost/test?sslmode=disable")
-	if err != nil {
-		return err
-	}
+	//TODO: this fails if there are no migrations, should that change?
+	//err = db.RunMigrations("postgres://mbv:mbv@localhost/test?sslmode=disable")
+	//if err != nil {
+	//	return err
+	//}
 
 	// TODO: rename this service, only placeholder
 	placeholderService := api.NewUserService(db)

@@ -5,14 +5,7 @@ import (
 	_ "github.com/lib/pq"
 	)
 
-type Storage interface {
-	GetUser(userID int) (string, error)
-	CreateUser(name string) (string, error)
-}
-
-func (s *storage) CreateUser(name string) (string, error) {
-	panic("implement me")
-}
+type Storage interface {}
 
 type storage struct {
 	db *sql.DB
@@ -20,8 +13,4 @@ type storage struct {
 
 func NewStorage(db *sql.DB) Storage {
 	return &storage{db: db}
-}
-
-func (s *storage) GetUser(userID int) (string, error) {
-	return "hello world", nil
 }

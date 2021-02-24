@@ -23,7 +23,8 @@ func main() {
 
 	// create router dependency
 	router := gin.Default()
-	r := http.NewRouter(router, api)
+	srv := http.NewRouter(router, api)
 
-	r.Run(":8000")
+	// start server
+	srv.Run(":8000")
 }

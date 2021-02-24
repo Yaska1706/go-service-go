@@ -1,9 +1,9 @@
 package api
 
 type API struct {
-	UserService
+	PlaceholderService
 }
 
-func NewApi(usrService UserService) API {
-	return API{usrService}
+func NewApi(placeHolderService PlaceholderService) API {
+	return API{placeHolderService}
 }

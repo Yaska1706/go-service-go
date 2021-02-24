@@ -6,8 +6,8 @@ import (
 )
 
 type Router interface {
-	Run(addr string)
-	Routes() *gin.Engine
+	routes() *gin.Engine
+	Run(addr string) error
 }
 
 type router struct {
@@ -19,7 +19,8 @@ func NewRouter(r *gin.Engine, api api.API) Router {
 	return &router{api, r}
 }
 
-func (r router) Run(addr string) {
-	router := r.Routes()
-	_ = router.Run(addr)
+func (r *router) Run(addr string) error {
+	routes := r.routes()
+
+	return routes.Run(addr)
 }

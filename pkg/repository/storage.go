@@ -30,7 +30,7 @@ func (s storage) RunMigrations(connectionString string) error {
 
 	basePath := internal.GetBasePath()
 
-	migrationsPath := filepath.Join("file://", basePath, "/pkg/repository/migrations/")
+	migrationsPath := filepath.Join("file://", basePath, "/migrations")
 
 	m, err := migrate.New(migrationsPath, connectionString)
 
@@ -41,7 +41,7 @@ func (s storage) RunMigrations(connectionString string) error {
 	err = m.Up()
 
 	if err != nil {
-		if err == errors.New("no change") {
+		if err.Error() == "no change" {
 			return nil
 		}
 		return err

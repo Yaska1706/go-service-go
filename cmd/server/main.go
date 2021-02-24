@@ -29,7 +29,10 @@ func run() error {
 		return err
 	}
 
-	db.RunMigrations("dsadsadsadsadsa")
+	err = db.RunMigrations("postgres://mbv:mbv@localhost/test?sslmode=disable")
+	if err != nil {
+		return err
+	}
 
 	// TODO: rename this service, only placeholder
 	placeholderService := api.NewUserService(db)

@@ -29,6 +29,8 @@ func run() error {
 		return err
 	}
 
+	db.RunMigrations("dsadsadsadsadsa")
+
 	// TODO: rename this service, only placeholder
 	placeholderService := api.NewUserService(db)
 
@@ -61,7 +63,7 @@ func setupDatabase() (repository.Storage, error) {
 
 // TODO: fix this naming at one point api.API looks stupid
 func setupRouter(api api.API) (http.Router, error) {
-		// create router dependency
+	// create router dependency
 	gin.SetMode(gin.ReleaseMode)
 	env := os.Getenv("ENVIRONMENT")
 
@@ -72,6 +74,6 @@ func setupRouter(api api.API) (http.Router, error) {
 	if env == "DEVELOPMENT" {
 		gin.SetMode(gin.DebugMode)
 	}
-		router := gin.Default()
-		return http.NewRouter(router, api), nil
+	router := gin.Default()
+	return http.NewRouter(router, api), nil
 }

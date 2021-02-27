@@ -59,8 +59,7 @@ func setupDatabase() (repository.Storage, error) {
 	return repository.NewStorage(db), err
 }
 
-// TODO: fix this naming at one point api.API looks stupid
-func setupRouter(api api.API) (http.Router, error) {
+func setupRouter(api api.Services) (http.Router, error) {
 	// create router dependency
 	gin.SetMode(gin.ReleaseMode)
 	env := os.Getenv("ENVIRONMENT")

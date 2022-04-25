@@ -1,4 +1,8 @@
-# Go service Go 
+# Go service Go
+
+## 2022 update
+This template is due for a major update - probably don't use it for your go API projects.
+
 This is the template I use for kick-starting all my Golang API projects.
 
 It is meant to provide some initial structure that is flexible but also lets you get building fast.
